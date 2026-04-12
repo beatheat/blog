@@ -1,0 +1,27 @@
+{{ if gt .TotalPages 1 }}
+<nav class="pagination portal-panel" aria-label="페이지 이동">
+  <div class="pagination-inner">
+    {{ if .HasPrev }}
+    <a class="pagination-link" href="{{ .Prev.URL }}">이전</a>
+    {{ else }}
+    <span class="pagination-link is-disabled">이전</span>
+    {{ end }}
+
+    <div class="pagination-pages">
+      {{ range .Pagers }}
+        {{ if eq .PageNumber $.PageNumber }}
+        <span class="pagination-link is-current">{{ .PageNumber }}</span>
+        {{ else }}
+        <a class="pagination-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    {{ if .HasNext }}
+    <a class="pagination-link" href="{{ .Next.URL }}">다음</a>
+    {{ else }}
+    <span class="pagination-link is-disabled">다음</span>
+    {{ end }}
+  </div>
+</nav>
+{{ end }}

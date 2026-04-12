@@ -1,0 +1,36 @@
+baseURL = "https://beatheat.github.io/blog/"
+languageCode = "ko-kr"
+title = "Tech Notes"
+defaultContentLanguage = "ko"
+
+enableRobotsTXT = true
+
+[outputs]
+  home = ["HTML", "RSS", "SITEMAP", "JSON"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changeFreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[pagination]
+  pagerSize = 6
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params]
+  description = "개발, 일상, 생각을 함께 기록하는 블로그"
+  author = "Your Name"
+  tagline = "개발 로그부터 일상 메모, 생각 정리까지"
+  defaultKeywords = ["personal blog", "developer", "일상", "생각", "기록"]
+  siteImage = "/images/og-default.svg"
+  googleSiteVerification = ""
+  naverSiteVerification = ""
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = "github-dark"

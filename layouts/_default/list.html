@@ -1,0 +1,68 @@
+{{ define "main" }}
+<main id="main-content" class="container portal-shell list-layout">
+  <aside class="portal-left" aria-label="탐색 메뉴">
+    <section class="portal-panel">
+      <p class="kicker">ARCHIVE</p>
+      <h2>Browse</h2>
+      <form class="portal-search-form js-search-form" action="{{ "/search/" | relURL }}" method="get" role="search" aria-label="사이드바 검색">
+        <input type="search" name="q" placeholder="검색어 입력">
+        <button type="submit">검색</button>
+      </form>
+      <nav class="portal-links">
+        <a href="{{ "/posts/" | relURL }}">전체 글</a>
+        <a href="{{ "/categories/tech/" | relURL }}">기술</a>
+        <a href="{{ "/categories/thoughts/" | relURL }}">생각</a>
+        <a href="{{ "/categories/life/" | relURL }}">일상</a>
+        <a href="{{ "/categories/pixelart/" | relURL }}">픽셀아트</a>
+        <a href="{{ "/tags/" | relURL }}">태그</a>
+      </nav>
+    </section>
+  </aside>
+
+  <section class="portal-center">
+    {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
+    <section class="list-header portal-panel">
+      <p class="kicker">{{ if eq .Kind "taxonomy" }}TAXONOMY{{ else }}ARCHIVE{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="hero-copy">
+        {{ if eq .Kind "taxonomy" }}
+        {{ .Data.Singular | title }} 기준으로 모아둔 글 목록입니다.
+        {{ else }}
+        기술, 생각, 일상, 픽셀아트 글을 모아봅니다.
+        {{ end }}
+      </p>
+    </section>
+
+    <section class="view-toolbar-wrap">
+      <div class="view-toolbar" role="group" aria-label="보기 방식">
+        <button type="button" class="view-btn js-view-btn" data-view="card">카드</button>
+        <button type="button" class="view-btn js-view-btn" data-view="list">리스트</button>
+      </div>
+    </section>
+
+    <section class="post-grid portal-post-grid js-view-grid">
+      {{ range $paginator.Pages }}
+      <article class="post-card">
+        {{ $category := "" }}
+        {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
+        {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
+        <div class="meta">
+          <span>
+            {{ if ne $category "" }}
+            <a class="meta-link" href="{{ printf "/categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
+            {{ end }}
+          </span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+        <a class="read-more" href="{{ .RelPermalink }}">Read article</a>
+      </article>
+      {{ end }}
+    </section>
+
+    {{ partial "pagination.html" $paginator }}
+  </section>
+
+</main>
+{{ end }}

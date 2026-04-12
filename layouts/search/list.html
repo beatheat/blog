@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main id="main-content" class="container list-layout">
+  <section class="list-header portal-panel search-header">
+    <p class="kicker">SEARCH</p>
+    <h1>검색</h1>
+    <p class="hero-copy">제목, 요약, 본문, 태그 기준으로 검색합니다.</p>
+    <form class="search-page-form js-search-form" action="{{ "/search/" | relURL }}" method="get" role="search">
+      <input id="search-input" type="search" name="q" placeholder="검색어를 입력하세요" autocomplete="off">
+      <button type="submit">검색</button>
+    </form>
+  </section>
+
+  <section class="portal-panel search-results-wrap" aria-live="polite">
+    <p id="search-status" class="hero-copy">검색어를 입력해 주세요.</p>
+    <div id="search-results" class="post-grid portal-post-grid"></div>
+  </section>
+</main>
+{{ end }}

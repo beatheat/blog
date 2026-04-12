@@ -1,0 +1,23 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#ecf7ea"/>
+  <rect x="140" y="32" width="1000" height="656" fill="#ffffff" stroke="#6fa178" stroke-width="2"/>
+  <line x1="140" y1="126" x2="1140" y2="126" stroke="#6fa178" stroke-width="2"/>
+  <text x="170" y="92" fill="#275b31" font-family="Georgia" font-size="42" font-weight="700">RETRO EDITORIAL</text>
+  <text x="920" y="92" fill="#3d6f46" font-family="Tahoma" font-size="18">Issue 04</text>
+  <text x="170" y="185" fill="#234f2d" font-family="Georgia" font-size="52" font-weight="700">읽기 좋은 글 중심 레이아웃</text>
+  <text x="170" y="232" fill="#396645" font-family="Georgia" font-size="26">기술, 생각, 일상, 픽셀아트를 한 톤으로</text>
+  <line x1="170" y1="260" x2="1110" y2="260" stroke="#c4ddc7"/>
+  <rect x="170" y="286" width="620" height="330" fill="#f8fdf7" stroke="#aac9af"/>
+  <text x="198" y="332" fill="#2d5b36" font-family="Georgia" font-size="34" font-weight="700">Featured Post</text>
+  <text x="198" y="376" fill="#406d49" font-family="Georgia" font-size="22">본문 중심의 넓은 줄간격과 안정적 여백</text>
+  <text x="198" y="412" fill="#406d49" font-family="Georgia" font-size="22">장문에서도 집중력 유지가 쉬운 구조</text>
+  <rect x="836" y="286" width="274" height="156" fill="#f1f9ef" stroke="#aac9af"/>
+  <text x="858" y="326" fill="#2f5d37" font-family="Tahoma" font-size="22" font-weight="700">CATEGORY</text>
+  <text x="858" y="362" fill="#406d49" font-family="Tahoma" font-size="18">기술</text>
+  <text x="858" y="390" fill="#406d49" font-family="Tahoma" font-size="18">생각</text>
+  <text x="858" y="418" fill="#406d49" font-family="Tahoma" font-size="18">일상 / 픽셀아트</text>
+  <rect x="836" y="460" width="274" height="156" fill="#f1f9ef" stroke="#aac9af"/>
+  <text x="858" y="500" fill="#2f5d37" font-family="Tahoma" font-size="22" font-weight="700">NOTES</text>
+  <text x="858" y="536" fill="#406d49" font-family="Tahoma" font-size="18">- 넓은 본문 폭 제어</text>
+  <text x="858" y="564" fill="#406d49" font-family="Tahoma" font-size="18">- 단정한 카드 구성</text>
+</svg>

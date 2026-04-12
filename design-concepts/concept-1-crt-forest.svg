@@ -1,0 +1,30 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1f12"/>
+      <stop offset="100%" stop-color="#0f2f1a"/>
+    </linearGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="rgba(120,255,140,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#scan)"/>
+  <rect x="80" y="70" width="1120" height="580" fill="#0b2315" stroke="#68f08a" stroke-width="3"/>
+  <text x="120" y="130" fill="#85ff9f" font-family="Courier New" font-size="30" font-weight="700">CRT FOREST / TECH NOTES</text>
+  <rect x="120" y="165" width="1040" height="42" fill="#11311d" stroke="#68f08a"/>
+  <text x="140" y="192" fill="#9cffb0" font-family="Courier New" font-size="18">[Posts] [Tags] [Categories] [About]</text>
+  <rect x="120" y="230" width="680" height="360" fill="#102d1b" stroke="#58d77d"/>
+  <text x="145" y="275" fill="#9cffb0" font-family="Courier New" font-size="42">README.TXT</text>
+  <text x="145" y="318" fill="#7ff29c" font-family="Courier New" font-size="20">개발 · 생각 · 일상 · 픽셀아트</text>
+  <text x="145" y="360" fill="#98ffb2" font-family="Courier New" font-size="17">> 최근 글과 카테고리 탐색을 한 화면에서</text>
+  <text x="145" y="392" fill="#98ffb2" font-family="Courier New" font-size="17">> 글 읽기 중심의 넓은 본문과 강한 대비</text>
+  <text x="145" y="424" fill="#98ffb2" font-family="Courier New" font-size="17">> 키보드 포커스와 접근성 보강</text>
+  <rect x="840" y="230" width="320" height="360" fill="#102d1b" stroke="#58d77d"/>
+  <text x="865" y="270" fill="#9cffb0" font-family="Courier New" font-size="22">WIDGETS</text>
+  <text x="865" y="308" fill="#84f5a3" font-family="Courier New" font-size="16">- Category Tree</text>
+  <text x="865" y="338" fill="#84f5a3" font-family="Courier New" font-size="16">- Pixel Log</text>
+  <text x="865" y="368" fill="#84f5a3" font-family="Courier New" font-size="16">- Thought of Day</text>
+  <text x="865" y="398" fill="#84f5a3" font-family="Courier New" font-size="16">- Recent Tags</text>
+  <rect x="120" y="610" width="1040" height="26" fill="#11311d" stroke="#58d77d"/>
+</svg>
