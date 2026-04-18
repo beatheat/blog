@@ -4,17 +4,17 @@
     <section class="portal-panel">
       <p class="kicker">MENU</p>
       <h2>Sections</h2>
-      <form class="portal-search-form js-search-form" action="{{ "/search/" | relURL }}" method="get" role="search" aria-label="사이드바 검색">
+      <form class="portal-search-form js-search-form" action="{{ "search/" | relURL }}" method="get" role="search" aria-label="사이드바 검색">
         <input type="search" name="q" placeholder="검색어 입력">
         <button type="submit">검색</button>
       </form>
       <nav class="portal-links">
-        <a href="{{ "/posts/" | relURL }}">전체 글</a>
-        <a href="{{ "/categories/tech/" | relURL }}">기술</a>
-        <a href="{{ "/categories/thoughts/" | relURL }}">생각</a>
-        <a href="{{ "/categories/life/" | relURL }}">일상</a>
-        <a href="{{ "/categories/pixelart/" | relURL }}">픽셀아트</a>
-        <a href="{{ "/tags/" | relURL }}">태그 모아보기</a>
+        <a href="{{ "posts/" | relURL }}">전체 글</a>
+        <a href="{{ "categories/tech/" | relURL }}">기술</a>
+        <a href="{{ "categories/thoughts/" | relURL }}">생각</a>
+        <a href="{{ "categories/life/" | relURL }}">일상</a>
+        <a href="{{ "categories/pixelart/" | relURL }}">픽셀아트</a>
+        <a href="{{ "tags/" | relURL }}">태그 모아보기</a>
       </nav>
     </section>
     <section class="portal-panel">
@@ -32,7 +32,7 @@
       <p class="kicker">PERSONAL LOG</p>
       <h1>개발과 일상을 함께 기록하는 블로그</h1>
       <p class="hero-copy">{{ .Site.Params.tagline }}</p>
-      <a class="cta" href="{{ "/posts/" | relURL }}">전체 글 보기</a>
+      <a class="cta" href="{{ "posts/" | relURL }}">전체 글 보기</a>
     </section>
 
     <section class="posts portal-panel" aria-label="최근 글 목록">
@@ -55,7 +55,7 @@
           <div class="meta">
             <span>
               {{ if ne $category "" }}
-              <a class="meta-link" href="{{ printf "/categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
+              <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
               {{ end }}
             </span>
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>

@@ -1,13 +1,13 @@
 {{ define "main" }}
 <main id="main-content" class="article-layout">
-  <a class="back-link" href="{{ "/posts/" | relURL }}">목록으로</a>
+  <a class="back-link" href="{{ "posts/" | relURL }}">목록으로</a>
   <h1>{{ .Title }}</h1>
   {{ $category := "" }}
   {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
   {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
   <p class="article-meta">
     {{ if ne $category "" }}
-    <a class="meta-link" href="{{ printf "/categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
+    <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
     ·
     {{ end }}
     {{ .Date.Format "2006-01-02" }}
@@ -15,7 +15,7 @@
   {{ with .Params.tags }}
   <div class="tag-list tag-list-article">
     {{ range . }}
-    <a class="tag-chip" href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+    <a class="tag-chip" href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
     {{ end }}
   </div>
   {{ end }}

@@ -9,15 +9,15 @@
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
   {{ end }}
 </head>
-<body data-site-root="{{ "/" | relURL }}">
+<body data-site-root="{{ "" | relURL }}">
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="site-header container">
-    <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+    <a class="brand" href="{{ "" | relURL }}">{{ .Site.Title }}</a>
     <div class="site-header-right">
       <nav aria-label="주요 메뉴">
-        <a href="{{ "/posts/" | relURL }}">Posts</a>
-        <a href="{{ "/tags/" | relURL }}">Tags</a>
-        <a href="{{ "/categories/" | relURL }}">Categories</a>
+        <a href="{{ "posts/" | relURL }}">Posts</a>
+        <a href="{{ "tags/" | relURL }}">Tags</a>
+        <a href="{{ "categories/" | relURL }}">Categories</a>
         <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
       <div class="theme-selector" aria-label="테마 선택">
@@ -29,7 +29,7 @@
           <div class="theme-options"></div>
         </div>
       </div>
-      <form class="header-search js-search-form" action="{{ "/search/" | relURL }}" method="get" role="search" aria-label="사이트 검색">
+      <form class="header-search js-search-form" action="{{ "search/" | relURL }}" method="get" role="search" aria-label="사이트 검색">
         <input type="search" name="q" placeholder="검색어 입력" aria-label="검색어 입력">
         <button type="submit">검색</button>
       </form>
