@@ -87,6 +87,20 @@
       accent2: "#555555",
       chip: "#d9d9d9",
     },
+    crimson: {
+      name: "Crimson",
+      pageTop: "#e4b3b8",
+      pageBottom: "#d9939c",
+      panel: "#efd0d4",
+      panel2: "#fff2f3",
+      text: "#4f1f27",
+      muted: "#6d303b",
+      line: "#bf7e88",
+      lineDark: "#8f4a55",
+      accent: "#a62334",
+      accent2: "#c63749",
+      chip: "#f4dde0",
+    },
   };
 
   function getSavedTheme() {
