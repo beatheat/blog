@@ -20,7 +20,7 @@
   </aside>
 
   <section class="portal-center">
-    {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
+    {{ $paginator := .Paginate ((where .Pages ".Params.hidden" "!=" true).ByDate.Reverse) }}
     <section class="list-header portal-panel">
       <p class="kicker">{{ if eq .Kind "taxonomy" }}TAXONOMY{{ else }}ARCHIVE{{ end }}</p>
       <h1>{{ .Title }}</h1>

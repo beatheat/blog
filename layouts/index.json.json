@@ -1,5 +1,5 @@
 [
-{{- $pages := where .Site.RegularPages "Section" "posts" -}}
+{{- $pages := where (where .Site.RegularPages "Section" "posts") ".Params.hidden" "!=" true -}}
 {{- range $i, $p := $pages -}}
   {{- if $i }},{{ end }}
   {

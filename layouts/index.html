@@ -30,7 +30,7 @@
   <section class="portal-center">
     <section class="hero portal-panel">
       <p class="kicker">PERSONAL LOG</p>
-      <h1>개발과 일상을 함께 기록하는 블로그</h1>
+      <h1>그냥 블로그</h1>
       <p class="hero-copy">{{ .Site.Params.tagline }}</p>
       <a class="cta" href="{{ "posts/" | relURL }}">전체 글 보기</a>
     </section>
@@ -39,7 +39,7 @@
       <div class="section-title-wrap">
         <h2>Recent Posts</h2>
         <div class="section-title-actions">
-          <span>{{ len (where .Site.RegularPages "Section" "posts") }} posts</span>
+          <span>{{ len (where (where .Site.RegularPages "Section" "posts") ".Params.hidden" "!=" true) }} posts</span>
           <div class="view-toolbar" role="group" aria-label="보기 방식">
             <button type="button" class="view-btn js-view-btn" data-view="card">카드</button>
             <button type="button" class="view-btn js-view-btn" data-view="list">리스트</button>
@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="post-grid portal-post-grid js-view-grid">
-        {{ range first 6 ((where .Site.RegularPages "Section" "posts").ByDate.Reverse) }}
+        {{ range first 6 ((where (where .Site.RegularPages "Section" "posts") ".Params.hidden" "!=" true).ByDate.Reverse) }}
         <article class="post-card">
           {{ $category := "" }}
           {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
