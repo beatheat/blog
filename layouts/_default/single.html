@@ -20,5 +20,14 @@
   </div>
   {{ end }}
   {{ .Content }}
+  {{ if and (ne $category "") (eq ($category | lower) "pixelart") }}
+  <div class="copyright-block copyright-block-inline">
+    <div class="copyright-row">
+      <img class="copyright-badge" src="{{ "images/cc-by-nc-nd-88x31.png" | relURL }}" alt="Creative Commons License BY-NC-ND 4.0">
+      <p class="copyright-note">CC BY-NC-ND 4.0 · 저작자 표시 / 비영리 / 변경 금지</p>
+    </div>
+  </div>
+  <script src="{{ "js/pixelart-protect.js" | relURL }}" defer></script>
+  {{ end }}
 </main>
 {{ end }}
