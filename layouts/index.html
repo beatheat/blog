@@ -4,18 +4,8 @@
     <section class="portal-panel">
       <p class="kicker">MENU</p>
       <h2>Sections</h2>
-      <form class="portal-search-form js-search-form" action="{{ "search/" | relURL }}" method="get" role="search" aria-label="사이드바 검색">
-        <input type="search" name="q" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-      </form>
-      <nav class="portal-links">
-        <a href="{{ "posts/" | relURL }}">전체 글</a>
-        <a href="{{ "categories/tech/" | relURL }}">기술</a>
-        <a href="{{ "categories/thoughts/" | relURL }}">생각</a>
-        <a href="{{ "categories/life/" | relURL }}">일상</a>
-        <a href="{{ "categories/pixelart/" | relURL }}">픽셀아트</a>
-        <a href="{{ "tags/" | relURL }}">태그 모아보기</a>
-      </nav>
+      {{ partial "sidebar-search-form.html" . }}
+      {{ partial "sidebar-nav-links.html" . }}
     </section>
     <section class="portal-panel">
       <p class="kicker">RECENT TAGS</p>
@@ -40,30 +30,12 @@
         <h2>Recent Posts</h2>
         <div class="section-title-actions">
           <span>{{ len (where (where .Site.RegularPages "Section" "posts") ".Params.hidden" "!=" true) }} posts</span>
-          <div class="view-toolbar" role="group" aria-label="보기 방식">
-            <button type="button" class="view-btn js-view-btn" data-view="card">카드</button>
-            <button type="button" class="view-btn js-view-btn" data-view="list">리스트</button>
-          </div>
+          {{ partial "view-toolbar.html" . }}
         </div>
       </div>
       <div class="post-grid portal-post-grid js-view-grid">
         {{ range first 6 ((where (where .Site.RegularPages "Section" "posts") ".Params.hidden" "!=" true).ByDate.Reverse) }}
-        <article class="post-card">
-          {{ $category := "" }}
-          {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
-          {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
-          <div class="meta">
-            <span>
-              {{ if ne $category "" }}
-              <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
-              {{ end }}
-            </span>
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-          </div>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
-          <a class="read-more" href="{{ .RelPermalink }}">Read article</a>
-        </article>
+        {{ partial "post-card.html" . }}
         {{ end }}
       </div>
     </section>

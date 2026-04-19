@@ -4,15 +4,8 @@
     <section class="portal-panel">
       <p class="kicker">DIRECTORY</p>
       <h2>Browse</h2>
-      <form class="portal-search-form js-search-form" action="{{ "search/" | relURL }}" method="get" role="search" aria-label="사이드바 검색">
-        <input type="search" name="q" placeholder="검색어 입력">
-        <button type="submit">검색</button>
-      </form>
-      <nav class="portal-links">
-        <a href="{{ "posts/" | relURL }}">전체 글</a>
-        <a href="{{ "categories/" | relURL }}">카테고리</a>
-        <a href="{{ "tags/" | relURL }}">태그</a>
-      </nav>
+      {{ partial "sidebar-search-form.html" . }}
+      {{ partial "sidebar-nav-links.html" . }}
     </section>
   </aside>
 

@@ -1,0 +1,16 @@
+<article class="post-card">
+  {{ $category := "" }}
+  {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
+  {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
+  <div class="meta">
+    <span>
+      {{ if ne $category "" }}
+      <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
+      {{ end }}
+    </span>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  </div>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+  <a class="read-more" href="{{ .RelPermalink }}">Read article</a>
+</article>
