@@ -1,6 +1,6 @@
 baseURL = "https://beatheat.github.io/blog/"
 languageCode = "ko-kr"
-title = "Tech Notes"
+title = "beatheat의 블로그"
 defaultContentLanguage = "ko"
 
 enableRobotsTXT = true
@@ -24,7 +24,7 @@ enableRobotsTXT = true
 [params]
   description = "개발, 일상, 생각을 함께 기록하는 블로그"
   author = "Your Name"
-  tagline = "개발 로그부터 일상 메모, 생각 정리까지"
+  tagline = "그냥 블로그입니다"
   defaultKeywords = ["personal blog", "developer", "일상", "생각", "기록"]
   siteImage = "/images/og-default.svg"
   googleSiteVerification = ""
