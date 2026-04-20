@@ -681,6 +681,8 @@ body.view-mode-list .js-view-grid .post-card .read-more {
   border: 1px solid var(--line);
 }
 
+
+
 .article-layout .article-meta {
   color: var(--muted);
   margin-bottom: 28px;
@@ -874,6 +876,10 @@ body.view-mode-list .js-view-grid .post-card .read-more {
     min-height: 40px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .article-layout .pixelart-pair {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -1,0 +1,4 @@
+<div class="pixelart-pair" role="group" aria-label="{{ .Get "label" | default "pixel art pair" }}">
+  <img class="pixelart-pair-image" src="{{ .Get "left" | relURL }}" alt="{{ .Get "leftAlt" | default "left image" }}">
+  <img class="pixelart-pair-image" src="{{ .Get "right" | relURL }}" alt="{{ .Get "rightAlt" | default "right image" }}">
+</div>
