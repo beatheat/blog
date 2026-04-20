@@ -2,6 +2,11 @@
 <main id="main-content" class="article-layout">
   <a class="back-link" href="{{ "posts/" | relURL }}">목록으로</a>
   <h1>{{ .Title }}</h1>
+  {{ if eq .Params.slug "who-am-i" }}
+  <div class="article-profile">
+    <img src="{{ "/images/logo.png" | relURL }}" alt="프로필 이미지" class="article-profile-image">
+  </div>
+  {{ end }}
   {{ $category := "" }}
   {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
   {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
