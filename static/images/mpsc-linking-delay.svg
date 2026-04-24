@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="Consolas, monospace" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto">
+      <path d="M7,0 L0,2.5 L7,5 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font-size: 16px; font-weight: bold; fill: #222; }
+    .col-header { font-size: 14px; font-weight: bold; }
+    .row-bg { rx: 4; }
+    .action { font-size: 12px; }
+    .box { stroke-width: 1.5; rx: 3; }
+    .box-text { font-size: 11px; fill: #fff; font-weight: bold; }
+    .link-ok { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arr); }
+    .link-brk { stroke: #d32f2f; stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
+    .x-mark { font-size: 14px; fill: #d32f2f; font-weight: bold; }
+    .label { font-size: 10px; fill: #777; }
+    .fail { fill: #d32f2f; font-weight: bold; }
+    .ok { fill: #2e7d32; font-weight: bold; }
+  </style>
+
+  <text x="550" y="28" text-anchor="middle" class="title">MPSC Lock-Free Queue: 링킹 지연 시나리오</text>
+
+  <text x="30" y="60" class="col-header" fill="#1565c0">Thread 1 (Push)</text>
+  <text x="310" y="60" class="col-header" fill="#e65100">Thread 2 (Push)</text>
+  <text x="620" y="60" class="col-header" fill="#2e7d32">Consumer (Pop)</text>
+  <text x="870" y="60" class="col-header" fill="#333">Queue 형상</text>
+
+  <line x1="20" y1="70" x2="1080" y2="70" stroke="#ccc" stroke-width="1"/>
+
+  <rect x="15" y="78" width="1070" height="42" fill="#f8f8f8" class="row-bg"/>
+  <text x="30" y="104" class="action" fill="#888">-</text>
+  <text x="310" y="104" class="action" fill="#888">-</text>
+  <text x="620" y="104" class="action" fill="#888">-</text>
+  <rect x="900" y="88" width="80" height="24" class="box" fill="#78909c" stroke="#546e7a"/>
+  <text x="940" y="104" text-anchor="middle" class="box-text">Sentinel</text>
+  <text x="940" y="83" text-anchor="middle" class="label">Head, Tail</text>
+
+  <rect x="15" y="126" width="1070" height="48" fill="#fff" class="row-bg"/>
+  <text x="30" y="155" class="action" fill="#888">-</text>
+  <text x="310" y="150" class="action" fill="#e65100">Push: Head를</text>
+  <text x="310" y="165" class="action" fill="#e65100">node(1)로 교체</text>
+  <text x="620" y="155" class="action" fill="#888">-</text>
+  <rect x="855" y="138" width="75" height="24" class="box" fill="#1565c0" stroke="#0d47a1"/>
+  <text x="892" y="154" text-anchor="middle" class="box-text">node(1)</text>
+  <text x="892" y="133" text-anchor="middle" class="label">Head</text>
+  <line x1="930" y1="150" x2="985" y2="150" class="link-brk"/>
+  <text x="957" y="146" text-anchor="middle" class="x-mark">X</text>
+  <rect x="988" y="138" width="75" height="24" class="box" fill="#78909c" stroke="#546e7a"/>
+  <text x="1025" y="154" text-anchor="middle" class="box-text">Sentinel</text>
+  <text x="1025" y="133" text-anchor="middle" class="label">Tail</text>
+
+  <rect x="15" y="180" width="1070" height="48" fill="#f8f8f8" class="row-bg"/>
+  <text x="30" y="204" class="action" fill="#1565c0">Push: Head를</text>
+  <text x="30" y="219" class="action" fill="#1565c0">node(2)로 교체</text>
+  <text x="310" y="210" class="action" fill="#888">-</text>
+  <text x="620" y="210" class="action" fill="#888">-</text>
+  <rect x="785" y="192" width="68" height="24" class="box" fill="#6a1b9a" stroke="#4a148c"/>
+  <text x="819" y="208" text-anchor="middle" class="box-text">node(2)</text>
+  <text x="819" y="187" text-anchor="middle" class="label">Head</text>
+  <line x1="853" y1="204" x2="890" y2="204" class="link-brk"/>
+  <text x="871" y="200" text-anchor="middle" class="x-mark">X</text>
+  <rect x="893" y="192" width="68" height="24" class="box" fill="#1565c0" stroke="#0d47a1"/>
+  <text x="927" y="208" text-anchor="middle" class="box-text">node(1)</text>
+  <line x1="961" y1="204" x2="998" y2="204" class="link-brk"/>
+  <text x="979" y="200" text-anchor="middle" class="x-mark">X</text>
+  <rect x="1001" y="192" width="68" height="24" class="box" fill="#78909c" stroke="#546e7a"/>
+  <text x="1035" y="208" text-anchor="middle" class="box-text">Sentinel</text>
+  <text x="1035" y="187" text-anchor="middle" class="label">Tail</text>
+  <text x="930" y="230" text-anchor="middle" font-size="11" fill="#d32f2f" font-weight="bold">2군데 끊김!</text>
+
+  <rect x="15" y="234" width="1070" height="55" fill="#e3f2fd" class="row-bg"/>
+  <text x="30" y="258" class="action" fill="#1565c0">링킹: node(1)._next</text>
+  <text x="30" y="273" class="action" fill="#1565c0">= node(2)</text>
+  <rect x="28" y="278" width="130" height="16" rx="3" fill="#1565c0" opacity="0.15"/>
+  <text x="93" y="290" text-anchor="middle" font-size="11" fill="#1565c0" font-weight="bold">Thread 1 Push 완료!</text>
+  <text x="310" y="265" class="action" fill="#888">-</text>
+  <text x="620" y="265" class="action" fill="#888">-</text>
+  <rect x="785" y="248" width="68" height="24" class="box" fill="#6a1b9a" stroke="#4a148c"/>
+  <text x="819" y="264" text-anchor="middle" class="box-text">node(2)</text>
+  <text x="819" y="243" text-anchor="middle" class="label">Head</text>
+  <line x1="853" y1="260" x2="891" y2="260" class="link-ok"/>
+  <rect x="893" y="248" width="68" height="24" class="box" fill="#1565c0" stroke="#0d47a1"/>
+  <text x="927" y="264" text-anchor="middle" class="box-text">node(1)</text>
+  <line x1="961" y1="260" x2="998" y2="260" class="link-brk"/>
+  <text x="979" y="256" text-anchor="middle" class="x-mark">X</text>
+  <rect x="1001" y="248" width="68" height="24" class="box" fill="#78909c" stroke="#546e7a"/>
+  <text x="1035" y="264" text-anchor="middle" class="box-text">Sentinel</text>
+  <text x="1035" y="243" text-anchor="middle" class="label">Tail</text>
+  <text x="930" y="286" text-anchor="middle" font-size="11" fill="#d32f2f">1군데 끊김</text>
+
+  <rect x="15" y="295" width="1070" height="50" fill="#fff3e0" class="row-bg"/>
+  <text x="30" y="324" class="action" fill="#888">-</text>
+  <text x="310" y="324" class="action" fill="#888">-</text>
+  <text x="620" y="316" class="action fail">Pop: Tail._next == null</text>
+  <text x="620" y="331" class="action fail">Thread 1은 Push 완료했지만 실패!</text>
+  <text x="620" y="344" class="action" fill="#d32f2f" font-size="11">(Thread 2의 링킹을 기다려야 함)</text>
+
+  <rect x="15" y="351" width="1070" height="48" fill="#e8f5e9" class="row-bg"/>
+  <text x="30" y="379" class="action" fill="#888">-</text>
+  <text x="310" y="373" class="action" fill="#e65100">링킹: Tail._next</text>
+  <text x="310" y="388" class="action" fill="#e65100">= node(1)</text>
+  <text x="620" y="379" class="action" fill="#888">-</text>
+  <rect x="785" y="363" width="68" height="24" class="box" fill="#6a1b9a" stroke="#4a148c"/>
+  <text x="819" y="379" text-anchor="middle" class="box-text">node(2)</text>
+  <text x="819" y="358" text-anchor="middle" class="label">Head</text>
+  <line x1="853" y1="375" x2="891" y2="375" class="link-ok"/>
+  <rect x="893" y="363" width="68" height="24" class="box" fill="#1565c0" stroke="#0d47a1"/>
+  <text x="927" y="379" text-anchor="middle" class="box-text">node(1)</text>
+  <line x1="961" y1="375" x2="998" y2="375" class="link-ok"/>
+  <rect x="1001" y="363" width="68" height="24" class="box" fill="#78909c" stroke="#546e7a"/>
+  <text x="1035" y="379" text-anchor="middle" class="box-text">Sentinel</text>
+  <text x="1035" y="358" text-anchor="middle" class="label">Tail</text>
+  <text x="930" y="401" text-anchor="middle" font-size="12" fill="#2e7d32" font-weight="bold">모든 링크 완성!</text>
+
+  <rect x="15" y="411" width="1070" height="55" fill="#e8f5e9" class="row-bg"/>
+  <text x="30" y="437" class="action" fill="#888">-</text>
+  <text x="310" y="437" class="action" fill="#888">-</text>
+  <text x="620" y="431" class="action ok">Pop: node(1) 반환 OK</text>
+  <text x="620" y="446" class="action ok">Pop: node(2) 반환 OK</text>
+  <text x="620" y="461" class="action" fill="#555" font-size="11">node(2)가 새 Sentinel 역할을 이어받음</text>
+</svg>

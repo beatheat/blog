@@ -1,38 +1,61 @@
 {{ define "main" }}
-<main id="main-content" class="article-layout">
-  <a class="back-link" href="{{ "posts/" | relURL }}">목록으로</a>
-  <h1>{{ .Title }}</h1>
-  {{ if eq .Params.slug "who-am-i" }}
-  <div class="article-profile">
-    <img src="{{ "/images/logo.png" | relURL }}" alt="프로필 이미지" class="article-profile-image">
-  </div>
-  {{ end }}
-  {{ $category := "" }}
-  {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
-  {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
-  <p class="article-meta">
-    {{ if ne $category "" }}
-    <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
-    ·
+<main id="main-content" class="container portal-shell list-layout">
+  <aside class="portal-left" aria-label="포스트 탐색">
+    <section class="portal-panel">
+      <p class="kicker">POST</p>
+      <h2>Browse</h2>
+      {{ partial "sidebar-search-form.html" . }}
+      {{ partial "sidebar-nav-links.html" . }}
+    </section>
+    {{ with .TableOfContents }}
+    <section class="portal-panel toc-panel">
+      <p class="kicker">ON THIS PAGE</p>
+      <h2>목차</h2>
+      <div class="table-of-contents">
+        {{ . }}
+      </div>
+    </section>
     {{ end }}
-    {{ .Date.Format "2006-01-02" }}
-  </p>
-  {{ with .Params.tags }}
-  <div class="tag-list tag-list-article">
-    {{ range . }}
-    <a class="tag-chip" href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
-    {{ end }}
-  </div>
-  {{ end }}
-  {{ .Content }}
-  {{ if and (ne $category "") (eq ($category | lower) "pixelart") }}
-  <div class="copyright-block copyright-block-inline">
-    <div class="copyright-row">
-      <img class="copyright-badge" src="{{ "images/cc-by-nc-nd-88x31.png" | relURL }}" alt="Creative Commons License BY-NC-ND 4.0">
-      <p class="copyright-note">CC BY-NC-ND 4.0 · 저작자 표시 / 비영리 / 변경 금지</p>
-    </div>
-  </div>
-  <script src="{{ "js/pixelart-protect.js" | relURL }}" defer></script>
-  {{ end }}
+  </aside>
+
+  <section class="portal-center">
+    <article class="article-layout">
+      <a class="back-link" href="{{ "posts/" | relURL }}">목록으로</a>
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Params.slug "who-am-i" }}
+      <div class="article-profile">
+        <img src="{{ "/images/logo.png" | relURL }}" alt="프로필 이미지" class="article-profile-image">
+      </div>
+      {{ end }}
+      {{ $category := "" }}
+      {{ with .Params.categories }}{{ $category = index . 0 }}{{ end }}
+      {{ if eq $category "" }}{{ with .Params.category }}{{ $category = . }}{{ end }}{{ end }}
+      <p class="article-meta">
+        {{ if ne $category "" }}
+        <a class="meta-link" href="{{ printf "categories/%s/" ($category | urlize) | relURL }}">{{ $category }}</a>
+        ·
+        {{ end }}
+        {{ .Date.Format "2006-01-02" }}
+      </p>
+      {{ with .Params.tags }}
+      <div class="tag-list tag-list-article">
+        {{ range . }}
+        <a class="tag-chip" href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ .Content }}
+      {{ if and (ne $category "") (eq ($category | lower) "pixelart") }}
+      <div class="copyright-block copyright-block-inline">
+        <div class="copyright-row">
+          <img class="copyright-badge" src="{{ "images/cc-by-nc-nd-88x31.png" | relURL }}" alt="Creative Commons License BY-NC-ND 4.0">
+          <p class="copyright-note">CC BY-NC-ND 4.0 · 저작자 표시 / 비영리 / 변경 금지</p>
+        </div>
+      </div>
+      <script src="{{ "js/pixelart-protect.js" | relURL }}" defer></script>
+      {{ end }}
+    </article>
+  </section>
+
 </main>
 {{ end }}

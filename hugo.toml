@@ -36,4 +36,5 @@ enableRobotsTXT = true
       unsafe = true
   [markup.highlight]
     noClasses = false
-    style = "github-dark"
+    style = "github"
+    guessSyntax = true
