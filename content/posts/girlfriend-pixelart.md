@@ -7,7 +7,7 @@ tags = ["일상", "그림"]
 +++
 
 <style>
-    .pixelart-pair {
+.pixelart-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
@@ -25,8 +25,8 @@ tags = ["일상", "그림"]
 </style>
 
 {{< pixelart-pair
-  left="../../images/chu-her.gif"
-  right="../../images/embrass-her.gif"
+  left="images/chu-her.gif"
+  right="images/embrass-her.gif"
 	leftAlt="Chu Her"
 	rightAlt="Embrace Her"
 >}}
