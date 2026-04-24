@@ -24,7 +24,7 @@
       <h1>{{ .Title }}</h1>
       {{ if eq .Params.slug "who-am-i" }}
       <div class="article-profile">
-        <img src="{{ "/images/logo.png" | relURL }}" alt="프로필 이미지" class="article-profile-image">
+        <img src="{{ "../../images/logo.png" | relURL }}" alt="프로필 이미지" class="article-profile-image">
       </div>
       {{ end }}
       {{ $category := "" }}
